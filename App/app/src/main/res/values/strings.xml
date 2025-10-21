@@ -1,0 +1,131 @@
+<resources>
+    <string name="app_name">UniConnect</string>
+    
+    <!-- Authentication -->
+    <string name="login_title">Welcome Back!</string>
+    <string name="login_subtitle">Sign in to continue your university journey</string>
+    <string name="signup_title">Join UniConnect</string>
+    <string name="signup_subtitle">Create your account and start exploring</string>
+    <string name="email_hint">University Email</string>
+    <string name="password_hint">Password</string>
+    <string name="name_hint">Full Name</string>
+    <string name="student_id_hint">Student ID</string>
+    <string name="department_hint">Department</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="create_account">Create Account</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="already_have_account">Already have an account?</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    
+    <!-- Navigation -->
+    <string name="nav_events">Events</string>
+    <string name="nav_clubs">Clubs</string>
+    <string name="nav_feed">Feed</string>
+    <string name="nav_live">Live</string>
+    <string name="nav_profile">Profile</string>
+    
+    <!-- Events -->
+    <string name="upcoming_events">Upcoming Events</string>
+    <string name="live_events">Live Events</string>
+    <string name="event_details">Event Details</string>
+    <string name="register_now">Register Now</string>
+    <string name="already_registered">Already Registered</string>
+    <string name="event_full">Event Full</string>
+    <string name="free_event">FREE</string>
+    <string name="registered_count">registered</string>
+    
+    <!-- Clubs -->
+    <string name="popular_clubs">Popular Clubs</string>
+    <string name="club_details">Club Details</string>
+    <string name="join_club">Join</string>
+    <string name="members">Members</string>
+    <string name="followers">Followers</string>
+    <string name="events">Events</string>
+    
+    <!-- Social -->
+    <string name="campus_feed">Campus Feed</string>
+    <string name="like">Like</string>
+    <string name="comment">Comment</string>
+    <string name="share">Share</string>
+    <string name="post_content">Post content...</string>
+    <string name="add_comment">Add a comment...</string>
+    
+    <!-- Search -->
+    <string name="search_hint">Search events, clubs...</string>
+    <string name="search_results">Search Results</string>
+    <string name="no_results">No results found</string>
+    
+    <!-- Profile -->
+    <string name="my_events">My Events</string>
+    <string name="my_clubs">My Clubs</string>
+    <string name="settings">Settings</string>
+    <string name="logout">Logout</string>
+    <string name="view_registered_events">View registered events</string>
+    <string name="manage_club_memberships">Manage club memberships</string>
+    <string name="app_preferences">App preferences</string>
+    <string name="sign_out_account">Sign out of account</string>
+    
+    <!-- Common -->
+    <string name="back">Back</string>
+    <string name="search">Search</string>
+    <string name="profile">Profile</string>
+    <string name="loading">Loading...</string>
+    <string name="error">Error</string>
+    <string name="retry">Retry</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="confirm">Confirm</string>
+    
+    <!-- Event Categories -->
+    <string name="category_academic">Academic</string>
+    <string name="category_cultural">Cultural</string>
+    <string name="category_sports">Sports</string>
+    <string name="category_social">Social</string>
+    <string name="category_tech">Tech</string>
+    <string name="category_workshop">Workshop</string>
+    <string name="category_competition">Competition</string>
+    <string name="category_concert">Concert</string>
+    <string name="category_festival">Festival</string>
+    
+    <!-- Club Categories -->
+    <string name="club_category_academic">Academic</string>
+    <string name="club_category_cultural">Cultural</string>
+    <string name="club_category_sports">Sports</string>
+    <string name="club_category_tech">Tech</string>
+    <string name="club_category_social">Social</string>
+    <string name="club_category_environmental">Environmental</string>
+    <string name="club_category_literary">Literary</string>
+    <string name="club_category_debate">Debate</string>
+    <string name="club_category_photography">Photography</string>
+    <string name="club_category_music">Music</string>
+    <string name="club_category_dance">Dance</string>
+    <string name="club_category_drama">Drama</string>
+    
+    <!-- Notifications -->
+    <string name="notification_event_reminder">Event Reminder</string>
+    <string name="notification_event_cancelled">Event Cancelled</string>
+    <string name="notification_new_post">New Post</string>
+    <string name="notification_club_update">Club Update</string>
+    <string name="notification_registration_confirmed">Registration Confirmed</string>
+    <string name="notification_event_starting">Event Starting</string>
+    
+    <!-- Welcome Messages -->
+    <string name="welcome_title">Welcome to Your Campus Hub!</string>
+    <string name="welcome_subtitle">Discover amazing events, join clubs, and connect with your university community.</string>
+    <string name="explore_now">Explore Now</string>
+    <string name="connect_discover_experience">Connect • Discover • Experience</string>
+    
+    <!-- Error Messages -->
+    <string name="error_network">Network error. Please check your connection.</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_login">Login failed. Please check your credentials.</string>
+    <string name="error_registration">Registration failed. Please try again.</string>
+    <string name="error_event_not_found">Event not found.</string>
+    <string name="error_club_not_found">Club not found.</string>
+    <string name="error_event_full">Event is full.</string>
+    <string name="error_already_registered">Already registered for this event.</string>
+    <string name="error_already_member">Already a member of this club.</string>
+</resources>

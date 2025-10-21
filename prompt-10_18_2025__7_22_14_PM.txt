@@ -1,0 +1,452 @@
+# Product Requirements Document (PRD)
+
+## 1\. Overview
+
+**App Name:** Flyx
+
+Flyx is a comprehensive Progressive Web App (PWA) that transforms university campus engagement by combining event discovery, social interaction, and community building into one seamless platform. Designed specifically for a 15,000+ student campus environment, Flyx serves as the central hub where students discover and register for events, join clubs, share real-time experiences, and build their campus legacy through an intuitive, Instagram-meets-BookMyShow interface.
+
+The app targets three primary user groups: students seeking engaging campus experiences, club administrators managing events and memberships, and event organizers coordinating large-scale campus activities. Flyx solves the critical problem of fragmented campus communication and engagement by replacing scattered WhatsApp groups, email chains, and physical bulletin boards with a unified, personalized, and intelligent platform that ensures no student misses opportunities that matter to them.
+
+## 2\. Essential Core Features
+
+### Authentication & Onboarding
+
+* University email-based authentication with Google integration
+* Interactive profile setup with interest selection and club preferences
+* Gamified onboarding with campus level system and achievement badges
+* Progressive profile completion with animated transitions
+
+### Event Management System
+
+* Advanced event creation tool with multiple ticket tiers and custom registration forms
+* Comprehensive event discovery with AI-powered personalization
+* QR code-based ticketing and check-in system
+* Integrated payment processing with multiple options (UPI, cards, wallets)
+* Real-time capacity management and waitlist functionality
+
+### Club Management
+
+* Professional club profiles with galleries and member showcases
+* Membership drive tools with custom application forms and review interface
+* Content management system for posts, announcements, and updates
+* Analytics dashboard with engagement metrics and growth tracking
+
+### Social Features
+
+* Instagram-style stories and live event feeds with photo/video sharing
+* Real-time event participation tracking with "who's here" functionality
+* Personal profile portfolios showcasing attended events and achievements
+* Networking tools for finding event participants and team formation
+
+### Discovery & Search
+
+* Smart home feed with personalized content algorithm
+* Universal search functionality across events, clubs, and opportunities
+* Advanced filtering system by date, type, price, location, and skill level
+* Trending events and recommendations based on user behavior
+
+### Opportunities Marketplace
+
+* External opportunity aggregation (hackathons, internships, competitions)
+* Integrated application and registration system
+* Collaboration features for inter-university events
+* Industry partnership event hosting
+
+### Notification System
+
+* Smart push notifications for event reminders and deadlines
+* Real-time updates for club activities and trending events
+* Personalized daily digest of relevant opportunities
+* Live event notifications and engagement alerts
+
+### Analytics & Insights
+
+* Personal activity tracking with year-end wrapped summaries
+* Club performance analytics with engagement and revenue metrics
+* University-wide participation insights and trend analysis
+
+## 3\. Tech Stack
+
+**Front-End:**
+
+* React with TypeScript for robust component development
+* Tailwind CSS for responsive, mobile-first design system
+* Vite for fast development and optimized PWA build
+* PWA configuration with service workers for offline functionality
+
+**Back-End:**
+
+* Supabase for authentication, real-time database, and file storage
+* Row Level Security (RLS) for user and role-based access control
+* Real-time subscriptions for live feeds and notifications
+* Edge functions for complex business logic and integrations
+
+**AI Integration:**
+
+* OpenAI GPT-4o for personalized event recommendations
+* Content moderation and smart categorization
+* Automated event descriptions and engagement insights
+
+**APIs & Integrations:**
+
+* Razorpay/Paytm for payment processing
+* Google Calendar API for event synchronization
+* OneSignal for cross-platform push notifications
+* Cloudinary for optimized image/video processing
+* Google Maps API for campus location services
+* WhatsApp Business API for quick sharing
+
+**PWA Specific Features:**
+
+* Offline caching for essential app functionality
+* App shell architecture for instant loading
+* Web App Manifest for native app-like installation
+* Background sync for seamless data updates
+
+## 4\. Design Preferences
+
+**Interface:** Modern, youth-centric design with glassmorphism effects, bold gradient accents, and smooth micro-interactions that create an engaging, Instagram-like experience while maintaining the functionality of event booking platforms.
+
+**Color Palette:**
+
+* Primary: Electric Blue (#007AFF) for trust and technology
+* Secondary: Vibrant Purple (#8B5FBF) for creativity and energy
+* Accent: Neon Green (#00FF88) for calls-to-action and success states
+* Neutral: Dark Gray (#1C1C1E) and Light Gray (#F2F2F7) for text and backgrounds
+
+**Typography:**
+
+* Headings: Inter (bold weights) for modern readability and tech feel
+* Body Text: Inter (regular/medium) for consistency and mobile optimization
+* Special Elements: Custom display font for brand elements and event titles
+
+**Additional Design Considerations:**
+
+* Card-based layout system optimized for touch interactions
+* High contrast ratios for accessibility compliance
+* Smooth 60fps animations with hardware acceleration
+* Mobile-first responsive breakpoints with PWA-specific considerations
+
+## 5\. All Screens/Pages
+
+### `/` \- Welcome/Splash Screen
+
+**UI Elements:** Animated campus landmarks, app logo with loading animation, university branding elements
+**Navigation:** Auto-redirects to `/onboarding` for new users or `/home` for authenticated users
+**Conditional Elements:** Different animations based on time of day, loading progress indicator
+
+### `/onboarding` \- User Onboarding Flow
+
+**UI Elements:** Step progress indicator, interest selection cards with icons, branch/year dropdown selectors, profile photo upload with camera access, animated transitions between steps
+**Navigation:** Forward/back navigation between onboarding steps, skip option, completion redirects to `/home`
+**Conditional Elements:** Different paths for students vs club admin accounts, validation states for required fields
+
+### `/auth/login` \- Authentication
+
+**UI Elements:** University email input field, Google OAuth button, phone number alternative, animated background elements, forgot password link
+**Navigation:** Success redirects to `/home`, registration link to `/auth/register`
+**Conditional Elements:** Loading states, error messages, biometric login option if available
+
+### `/auth/register` \- Registration
+
+**UI Elements:** Multi-step form (personal info, university details, verification), email verification status, terms acceptance checkbox
+**Navigation:** Back to login, forward through registration steps, email verification redirect
+**Conditional Elements:** University email validation, verification code input, completion celebration animation
+
+### `/home` \- Main Feed
+
+**UI Elements:** Personalized event cards with images and quick info, tab switcher (For You, Following, Trending, Near You), story circles at top, floating action button for quick actions, pull-to-refresh functionality
+**Navigation:** Tap cards to `/event/:id`, story circles to `/story/:id`, FAB to quick actions menu, bottom navigation always visible
+**Conditional Elements:** Empty states for new users, loading skeletons, infinite scroll, personalized recommendations based on user interests
+
+### `/event/:id` \- Event Details
+
+**UI Elements:** Hero image/video with overlay, event title and subtitle, date/time/location info, description with rich formatting, speaker profiles, ticket tier selection, registration form fields, social share buttons, related events carousel
+**Navigation:** Back to previous screen, register button to `/booking/:eventId`, club profile link to `/club/:id`, share modal
+**Conditional Elements:** Sold out states, registration deadline warnings, member-only access indicators, past event galleries
+
+### `/booking/:eventId` \- Event Registration
+
+**UI Elements:** Ticket quantity selector, team member addition forms, custom registration fields, payment method selection, promo code input, total cost calculator, terms and conditions
+**Navigation:** Back to event details, continue to `/payment/:bookingId`, saved payment methods
+**Conditional Elements:** Team registration flows, early bird pricing display, capacity warnings, form validation states
+
+### `/payment/:bookingId` \- Payment Processing
+
+**UI Elements:** Order summary with ticket breakdown, payment method selection (UPI, cards, wallets), secure payment forms, processing animation, confirmation screen
+**Navigation:** Back to booking, success redirect to `/ticket/:ticketId`, failure retry options
+**Conditional Elements:** Payment method availability, processing states, success/failure animations, receipt generation
+
+### `/ticket/:ticketId` \- Digital Ticket
+
+**UI Elements:** QR code for check-in, event details summary, attendee information, add to calendar button, transfer ticket option, event countdown timer
+**Navigation:** Back to tickets list, event details link, support contact
+**Conditional Elements:** Transfer functionality, cancellation options, check-in status updates, event day special features
+
+### `/club/:id` \- Club Profile
+
+**UI Elements:** Cover image and logo, club bio and stats, upcoming events grid, past event gallery, member showcases, social media links, join/follow button
+**Navigation:** Event cards to `/event/:id`, follow toggles, join application to `/club/:id/join`, member directory
+**Conditional Elements:** Admin view with management options, member benefits display, application status tracking
+
+### `/club/:id/join` \- Club Membership Application
+
+**UI Elements:** Application form with custom fields, portfolio upload area, motivation letter input, previous experience section, submit button
+**Navigation:** Back to club profile, submission confirmation, application tracking
+**Conditional Elements:** Different forms per club, file upload progress, submission status updates
+
+### `/clubs` \- Clubs Directory
+
+**UI Elements:** Category filter chips, search bar, club cards grid with member counts, featured clubs carousel, alphabetical index
+**Navigation:** Filter selections, search results, club cards to `/club/:id`
+**Conditional Elements:** Empty search states, filter combinations, membership status indicators
+
+### `/opportunities` \- Opportunities Marketplace
+
+**UI Elements:** Opportunity cards with quick info (deadline, prize, difficulty), category filters, search functionality, bookmark options, external link indicators
+**Navigation:** Filter selections, opportunity cards to external links or `/opportunity/:id`, bookmarks to saved list
+**Conditional Elements:** Eligibility matching, deadline urgency indicators, application tracking
+
+### `/search` \- Universal Search
+
+**UI Elements:** Search input with suggestions, recent searches, trending searches, results tabs (events, clubs, opportunities, people), filters sidebar
+**Navigation:** Search suggestions, result items to respective detail pages, clear search, advanced filters
+**Conditional Elements:** Auto-complete, no results states, search history, trending topics
+
+### `/profile` \- User Profile
+
+**UI Elements:** Profile photo and basic info, events attended gallery, clubs joined section, achievements and badges, activity stats, settings button
+**Navigation:** Edit profile to `/profile/edit`, individual achievement details, event history to specific events
+**Conditional Elements:** Privacy settings, achievement celebrations, activity timeline
+
+### `/profile/edit` \- Edit Profile
+
+**UI Elements:** Photo upload with crop tool, personal information fields, interest selection, privacy settings toggles, notification preferences
+**Navigation:** Save changes, cancel to `/profile`, individual setting categories
+**Conditional Elements:** Field validation, photo processing states, privacy explanations
+
+### `/notifications` \- Notifications Center
+
+**UI Elements:** Notification list with icons and timestamps, mark all read button, notification categories, settings link
+**Navigation:** Individual notifications to relevant screens, settings to notification preferences, clear all option
+**Conditional Elements:** Empty states, unread indicators, notification grouping
+
+### `/tickets` \- My Tickets
+
+**UI Elements:** Upcoming tickets list, past tickets archive, ticket cards with event info, QR codes, filter/sort options
+**Navigation:** Individual tickets to `/ticket/:ticketId`, event details links, archive toggle
+**Conditional Elements:** Empty states, ticket transfer options, refund status
+
+### `/calendar` \- Event Calendar
+
+**UI Elements:** Monthly/weekly calendar views, event markers, today indicator, navigation arrows, sync with device calendar option
+**Navigation:** Date selection, event markers to `/event/:id`, view toggles, sync settings
+**Conditional Elements:** Different views, loading states, sync status indicators
+
+### `/wallet` \- Payment Wallet
+
+**UI Elements:** Wallet balance display, transaction history, top-up options, payment methods management, transaction details
+**Navigation:** Top-up to payment flow, transaction details, payment method management
+**Conditional Elements:** Balance warnings, transaction status, refund tracking
+
+### `/settings` \- App Settings
+
+**UI Elements:** User preferences sections, notification settings, privacy controls, account management, support links, logout button
+**Navigation:** Individual setting categories, account deletion flow, support contact methods
+**Conditional Elements:** Different options based on user type, confirmation modals for critical actions
+
+### `/admin/dashboard` \- Club Admin Dashboard \(Role\-based\)
+
+**UI Elements:** Analytics widgets, recent activity feed, quick action buttons, event management shortcuts, member statistics
+**Navigation:** Analytics details, event creation to `/admin/event/create`, member management sections
+**Conditional Elements:** Role-based feature access, performance alerts, approval notifications
+
+### `/admin/event/create` \- Create Event \(Admin only\)
+
+**UI Elements:** Multi-step event creation form, media upload areas, ticket configuration, registration form builder, preview mode
+**Navigation:** Step navigation, save draft, preview to public event page, publish confirmation
+**Conditional Elements:** Template options, validation states, media processing indicators
+
+### `/admin/members` \- Member Management \(Admin only\)
+
+**UI Elements:** Member list with search/filter, bulk action options, member details, communication tools, analytics charts
+**Navigation:** Individual member profiles, bulk actions, communication composer
+**Conditional Elements:** Application review workflows, member status management, export options
+
+### `/stories/:id` \- Story Viewer
+
+**UI Elements:** Full-screen story display, progress indicators, user attribution, interaction buttons, next/previous navigation
+**Navigation:** Tap through stories, user profile links, story reactions, sharing options
+**Conditional Elements:** Story expiration timers, interaction overlays, creator tools for own stories
+
+### `/live/:eventId` \- Live Event Feed
+
+**UI Elements:** Real-time photo/video feed, posting interface, participant list, live reactions, event check-in status
+**Navigation:** Post creation modal, participant profiles, main event details link
+**Conditional Elements:** Location verification for posting, live vs concluded event states, moderation tools
+
+## 6\. App Menu and Navigation Structure
+
+**Primary Navigation: Bottom Tab Bar (PWA Optimized)**
+
+* Home (feed icon) - Main event discovery feed
+* Search (magnifying glass icon) - Universal search functionality
+* Calendar (calendar icon) - Personal event calendar
+* Profile (user icon) - Personal profile and settings
+* Menu (hamburger icon) - Additional options and admin functions
+
+**Secondary Navigation: Top Navigation Bar**
+
+* University logo/branding (left)
+* Notification bell with badge count (right)
+* Quick search button (right)
+
+**Contextual Navigation:**
+
+* Floating Action Button (FAB) on home screen for quick event creation (admin users) or quick actions
+* Swipe gestures for story navigation and feed interactions
+* Pull-to-refresh on main feeds
+* Back button behavior optimized for PWA navigation
+
+**Admin Panel Access:**
+
+* Role-based menu items appear in hamburger menu for club administrators
+* Quick admin shortcuts in profile section for relevant users
+* Admin dashboard accessible via `/admin/dashboard` with role verification
+
+**Navigation Hierarchy:**
+
+```
+├── Main App (Bottom Tabs)
+│   ├── Home Feed
+│   ├── Search & Discovery
+│   ├── Calendar View
+│   ├── User Profile
+│   └── Menu/Settings
+├── Event Flows
+│   ├── Event Details
+│   ├── Registration/Booking
+│   ├── Payment Processing
+│   └── Digital Tickets
+├── Club Ecosystem
+│   ├── Club Profiles
+│   ├── Membership Applications
+│   └── Club Directory
+├── Social Features
+│   ├── Stories & Live Feeds
+│   ├── User Networking
+│   └── Event Experiences
+└── Administrative
+    ├── Club Management
+    ├── Event Creation
+    └── Analytics Dashboard
+```
+
+## 7\. User Flow
+
+### Primary User Journey: Student Event Discovery and Registration
+
+**1\. App Launch & Authentication**
+
+* User opens Flyx PWA on mobile device
+* Splash screen with animated campus landmarks loads (2-3 seconds)
+* First-time users redirect to onboarding flow, returning users go to home feed
+* New users complete interest selection, club preferences, and profile setup with gamified progress tracking
+
+**2\. Personalized Discovery**
+
+* Home feed loads with AI-curated events based on user interests and past activity
+* User scrolls through visually rich event cards showing upcoming hackathons, workshops, cultural events, and club activities
+* Quick "interested" taps save events to personal calendar and improve recommendations
+* Story circles at top show live moments from ongoing events and recent club activities
+
+**3\. Event Selection and Exploration**
+
+* User taps on appealing event card (e.g., "AI/ML Workshop by Tech Club")
+* Event details page loads with hero image, comprehensive description, speaker profiles, and past edition highlights
+* User reviews schedule, checks ticket availability, and reads FAQs
+* Social proof shown through attendee list and comments from previous events
+
+**4\. Registration Process**
+
+* User selects ticket tier (free/paid/member-only) and team participation option
+* Custom registration form appears with relevant fields (skill level, dietary preferences, emergency contact)
+* For team events, user adds teammate details and sends collaboration invites
+* Real-time capacity updates ensure accurate availability information
+
+**5\. Payment and Confirmation**
+
+* Secure payment interface with multiple options (UPI, cards, campus wallet)
+* Order summary with itemized costs, early bird discounts, and promo code application
+* Payment processing with real-time status updates and security confirmations
+* Instant digital ticket generation with unique QR code and calendar integration
+
+**6\. Pre\-Event Engagement**
+
+* Automated reminders sent via push notifications (1 week, 1 day, 1 hour before)
+* User receives event-specific updates, preparation materials, and venue information
+* Networking features allow connecting with other registered participants
+* Event countdown and excitement building through organizer updates
+
+**7\. Event Day Experience**
+
+* QR code ticket used for seamless venue check-in
+* Live event feed activates showing real-time posts from attendees
+* User shares moments using event-specific filters and hashtags
+* "Who's here" feature facilitates networking and connection building
+
+**8\. Post\-Event Value**
+
+* Digital certificate or completion badge automatically added to profile
+* Event gallery with professional photos and user-generated content
+* Feedback form for continuous improvement and recommendation refinement
+* Related event suggestions based on attendance and engagement patterns
+
+### Secondary Flow: Club Discovery and Membership
+
+**1\. Club Exploration**
+
+* User navigates to Clubs section via bottom navigation or search
+* Category-based browsing (technical, cultural, sports, entrepreneurship) with visual club cards
+* Club profiles showcase mission, recent events, member testimonials, and achievement highlights
+* Follow functionality for updates without formal membership
+
+**2\. Membership Application**
+
+* User initiates membership process through club profile
+* Custom application form with portfolio upload, motivation statements, and experience details
+* Application tracking system with status updates and timeline visibility
+* Interview scheduling and communication tools integrated
+
+**3\. Member Experience**
+
+* Exclusive access to member-only events and early registration privileges
+* Enhanced networking through verified member community
+* Leadership opportunities and skill development programs
+* Alumni connections and industry mentorship programs
+
+### Administrative Flow: Club Event Management
+
+**1\. Event Creation Workflow**
+
+* Club admin accesses dashboard through role-based navigation
+* Comprehensive event creation wizard with templates for common event types
+* Media upload, schedule configuration, and ticket tier setup
+* Registration form customization with conditional logic and required fields
+
+**2\. Marketing and Promotion**
+
+* Multi-channel promotion through in-app feeds, push notifications, and social sharing
+* Analytics tracking for reach, impressions, and conversion rates
+* A/B testing capabilities for event descriptions and promotional materials
+* Cross-club collaboration tools for larger initiatives
+
+**3\. Event Management and Analytics**
+
+* Real-time registration tracking with capacity management and waitlist functionality
+* Attendee communication tools with segmented messaging capabilities
+* Live event monitoring with check-in analytics and engagement metrics
+* Post-event analysis with ROI calculation and improvement recommendations
+
+This comprehensive user flow ensures seamless engagement across all user types while maintaining the fun, social aspects that make campus life memorable. The PWA architecture provides native app-like performance while remaining accessible across all devices and platforms.
