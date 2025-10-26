@@ -1,0 +1,22 @@
+{
+  "name": "flyx-mvp",
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "start:api": "cd packages/api && npm run dev",
+    "start:admin": "cd apps/web-admin && npm run dev",
+    "start:registration": "cd apps/registration-web && npm run dev",
+    "db:migrate": "cd packages/database && psql $DATABASE_URL -f migrations/001_create_events_tables.sql",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down"
+  },
+  "devDependencies": {
+    "turbo": "latest"
+  },
+  "packageManager": "npm@10.1.0",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

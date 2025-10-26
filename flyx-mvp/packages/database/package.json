@@ -1,0 +1,9 @@
+{
+  "name": "@flyx/database",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "migrate": "psql $DATABASE_URL -f migrations/001_create_events_tables.sql",
+    "seed": "psql $DATABASE_URL -f seeds/sample_events.sql"
+  }
+}
