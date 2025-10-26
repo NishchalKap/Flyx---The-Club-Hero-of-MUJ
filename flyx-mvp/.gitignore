@@ -1,0 +1,20 @@
+# Node
+node_modules/
+dist/
+build/
+npm-debug.log*
+yarn-error.log*
+
+# Turbo
+.turbo/
+
+# Env
+.env
+.env*.local
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
